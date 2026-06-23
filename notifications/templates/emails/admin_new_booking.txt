@@ -1,0 +1,11 @@
+New Booking Received - {{ booking.booking_ref }}
+
+Service: {{ service.name }}
+Destination: {{ booking.destination }}
+Travel Date: {{ booking.travel_date }}
+Travelers: {{ booking.num_travelers }}
+
+Customer: {{ customer.full_name }}
+Email: {{ customer.email }}
+Phone: {{ customer.phone }}
+Country: {{ customer.country }}

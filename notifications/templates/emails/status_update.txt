@@ -1,0 +1,10 @@
+Booking Update - {{ booking.booking_ref }}
+
+Dear {{ customer.full_name }},
+
+Your booking {{ booking.booking_ref }} status has been updated to {{ status_display }}.
+
+Service: {{ service.name }}
+Destination: {{ booking.destination }}
+
+Contact: {{ phone }} | {{ email }}

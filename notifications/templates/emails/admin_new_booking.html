@@ -1,0 +1,41 @@
+{% extends "emails/base.html" %}
+
+{% block title %}New Booking - {{ booking.booking_ref }}{% endblock %}
+
+{% block content %}
+<h2 style="margin:0 0 16px;color:#1A2B5F;font-size:20px;">New Booking Received</h2>
+<p style="margin:0 0 24px;color:#333;font-size:15px;">A new booking has been submitted and requires your attention.</p>
+
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#FFF8EC;border-radius:12px;border-left:4px solid #6B3FA0;margin-bottom:16px;">
+  <tr>
+    <td style="padding:20px;">
+      <p style="margin:0 0 12px;color:#6B3FA0;font-size:13px;font-weight:700;text-transform:uppercase;">Booking Details</p>
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="4">
+        <tr><td style="color:#666;font-size:14px;width:40%;">Reference</td><td style="color:#1A2B5F;font-size:14px;font-weight:700;">{{ booking.booking_ref }}</td></tr>
+        <tr><td style="color:#666;font-size:14px;">Service</td><td style="color:#333;font-size:14px;">{{ service.name }}</td></tr>
+        <tr><td style="color:#666;font-size:14px;">Destination</td><td style="color:#333;font-size:14px;">{{ booking.destination }}</td></tr>
+        <tr><td style="color:#666;font-size:14px;">Travel Date</td><td style="color:#333;font-size:14px;">{{ booking.travel_date }}</td></tr>
+        <tr><td style="color:#666;font-size:14px;">Travelers</td><td style="color:#333;font-size:14px;">{{ booking.num_travelers }}</td></tr>
+        <tr><td style="color:#666;font-size:14px;">Budget</td><td style="color:#333;font-size:14px;">{{ budget_display }}</td></tr>
+        {% if booking.special_requests %}
+        <tr><td style="color:#666;font-size:14px;">Special Requests</td><td style="color:#333;font-size:14px;">{{ booking.special_requests }}</td></tr>
+        {% endif %}
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#FFF8EC;border-radius:12px;border-left:4px solid #F5A623;">
+  <tr>
+    <td style="padding:20px;">
+      <p style="margin:0 0 12px;color:#F5A623;font-size:13px;font-weight:700;text-transform:uppercase;">Customer Details</p>
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="4">
+        <tr><td style="color:#666;font-size:14px;width:40%;">Name</td><td style="color:#333;font-size:14px;">{{ customer.full_name }}</td></tr>
+        <tr><td style="color:#666;font-size:14px;">Email</td><td style="color:#333;font-size:14px;">{{ customer.email }}</td></tr>
+        <tr><td style="color:#666;font-size:14px;">Phone</td><td style="color:#333;font-size:14px;">{{ customer.phone }}</td></tr>
+        <tr><td style="color:#666;font-size:14px;">Country</td><td style="color:#333;font-size:14px;">{{ customer.country }}</td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{% endblock %}

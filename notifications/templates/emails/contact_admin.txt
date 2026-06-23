@@ -1,0 +1,7 @@
+New Contact Enquiry from {{ name }}
+
+Email: {{ email }}
+Phone: {{ phone }}
+
+Message:
+{{ message }}

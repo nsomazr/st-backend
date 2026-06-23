@@ -1,0 +1,14 @@
+Booking Confirmation - {{ booking.booking_ref }}
+
+Dear {{ customer.full_name }},
+
+Thank you for choosing Smart Travels by HL.
+
+Reference: {{ booking.booking_ref }}
+Service: {{ service.name }}
+Destination: {{ booking.destination }}
+Travel Date: {{ booking.travel_date }}
+Travelers: {{ booking.num_travelers }}
+Status: {{ status_display }}
+
+Contact: {{ phone }} | {{ email }}

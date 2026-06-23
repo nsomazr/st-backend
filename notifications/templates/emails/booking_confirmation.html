@@ -1,0 +1,61 @@
+{% extends "emails/base.html" %}
+
+{% block title %}Booking Confirmation - {{ booking.booking_ref }}{% endblock %}
+
+{% block content %}
+<h2 style="margin:0 0 16px;color:#1A2B5F;font-size:20px;">Booking Confirmed!</h2>
+<p style="margin:0 0 16px;color:#333;font-size:15px;line-height:1.6;">
+  Dear {{ customer.full_name }},
+</p>
+<p style="margin:0 0 24px;color:#333;font-size:15px;line-height:1.6;">
+  Thank you for choosing Smart Travels by HL. We have received your booking request and our team will be in touch shortly.
+</p>
+
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#FFF8EC;border-radius:12px;border-left:4px solid #F5A623;margin-bottom:24px;">
+  <tr>
+    <td style="padding:20px;">
+      <p style="margin:0 0 12px;color:#6B3FA0;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">Booking Summary</p>
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="4">
+        <tr>
+          <td style="color:#666;font-size:14px;width:40%;">Reference</td>
+          <td style="color:#1A2B5F;font-size:14px;font-weight:700;">{{ booking.booking_ref }}</td>
+        </tr>
+        <tr>
+          <td style="color:#666;font-size:14px;">Service</td>
+          <td style="color:#333;font-size:14px;">{{ service.name }}</td>
+        </tr>
+        <tr>
+          <td style="color:#666;font-size:14px;">Destination</td>
+          <td style="color:#333;font-size:14px;">{{ booking.destination }}</td>
+        </tr>
+        <tr>
+          <td style="color:#666;font-size:14px;">Travel Date</td>
+          <td style="color:#333;font-size:14px;">{{ booking.travel_date }}</td>
+        </tr>
+        {% if booking.return_date %}
+        <tr>
+          <td style="color:#666;font-size:14px;">Return Date</td>
+          <td style="color:#333;font-size:14px;">{{ booking.return_date }}</td>
+        </tr>
+        {% endif %}
+        <tr>
+          <td style="color:#666;font-size:14px;">Travelers</td>
+          <td style="color:#333;font-size:14px;">{{ booking.num_travelers }}</td>
+        </tr>
+        <tr>
+          <td style="color:#666;font-size:14px;">Budget Range</td>
+          <td style="color:#333;font-size:14px;">{{ budget_display }}</td>
+        </tr>
+        <tr>
+          <td style="color:#666;font-size:14px;">Status</td>
+          <td style="color:#F5A623;font-size:14px;font-weight:600;">{{ status_display }}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<p style="margin:0;color:#333;font-size:14px;line-height:1.6;">
+  If you have any questions, please contact us at <a href="mailto:{{ email }}" style="color:#6B3FA0;">{{ email }}</a> or call {{ phone }}.
+</p>
+{% endblock %}

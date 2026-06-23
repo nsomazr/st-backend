@@ -1,0 +1,41 @@
+{% extends "emails/base.html" %}
+
+{% block title %}Booking Update - {{ booking.booking_ref }}{% endblock %}
+
+{% block content %}
+<h2 style="margin:0 0 16px;color:#1A2B5F;font-size:20px;">Booking Status Update</h2>
+<p style="margin:0 0 16px;color:#333;font-size:15px;line-height:1.6;">
+  Dear {{ customer.full_name }},
+</p>
+
+{% if booking.status == 'confirmed' %}
+<p style="margin:0 0 24px;color:#333;font-size:15px;line-height:1.6;">
+  Great news! Your booking <strong style="color:#1A2B5F;">{{ booking.booking_ref }}</strong> has been <strong style="color:#F5A623;">confirmed</strong>. We're excited to help you travel smart and travel better!
+</p>
+{% elif booking.status == 'cancelled' %}
+<p style="margin:0 0 24px;color:#333;font-size:15px;line-height:1.6;">
+  We regret to inform you that your booking <strong style="color:#1A2B5F;">{{ booking.booking_ref }}</strong> has been <strong style="color:#cc3333;">cancelled</strong>. We apologize for any inconvenience. Please contact us if you have questions or would like to rebook.
+</p>
+{% elif booking.status == 'completed' %}
+<p style="margin:0 0 24px;color:#333;font-size:15px;line-height:1.6;">
+  Your booking <strong style="color:#1A2B5F;">{{ booking.booking_ref }}</strong> has been marked as <strong style="color:#6B3FA0;">completed</strong>. Thank you for traveling with Smart Travels by HL!
+</p>
+{% else %}
+<p style="margin:0 0 24px;color:#333;font-size:15px;line-height:1.6;">
+  Your booking <strong style="color:#1A2B5F;">{{ booking.booking_ref }}</strong> status has been updated to <strong style="color:#F5A623;">{{ status_display }}</strong>.
+</p>
+{% endif %}
+
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#FFF8EC;border-radius:12px;border-left:4px solid #6B3FA0;">
+  <tr>
+    <td style="padding:20px;">
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="4">
+        <tr><td style="color:#666;font-size:14px;width:40%;">Reference</td><td style="color:#1A2B5F;font-size:14px;font-weight:700;">{{ booking.booking_ref }}</td></tr>
+        <tr><td style="color:#666;font-size:14px;">Service</td><td style="color:#333;font-size:14px;">{{ service.name }}</td></tr>
+        <tr><td style="color:#666;font-size:14px;">Destination</td><td style="color:#333;font-size:14px;">{{ booking.destination }}</td></tr>
+        <tr><td style="color:#666;font-size:14px;">Status</td><td style="color:#F5A623;font-size:14px;font-weight:600;">{{ status_display }}</td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{% endblock %}

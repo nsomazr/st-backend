@@ -1,0 +1,8 @@
+Thank you for contacting Smart Travels by HL, {{ name }}!
+
+We have received your message and will respond shortly.
+
+Your message:
+{{ message }}
+
+Contact: {{ phone }} | {{ email }}

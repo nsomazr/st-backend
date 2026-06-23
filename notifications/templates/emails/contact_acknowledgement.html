@@ -1,0 +1,18 @@
+{% extends "emails/base.html" %}
+
+{% block title %}Thank you for contacting us{% endblock %}
+
+{% block content %}
+<h2 style="margin:0 0 16px;color:#1A2B5F;font-size:20px;">Thank You, {{ name }}!</h2>
+<p style="margin:0 0 16px;color:#333;font-size:15px;line-height:1.6;">
+  We have received your message and will get back to you as soon as possible, typically within 24 hours.
+</p>
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#FFF8EC;border-radius:12px;border-left:4px solid #F5A623;">
+  <tr>
+    <td style="padding:20px;">
+      <p style="margin:0 0 8px;color:#666;font-size:13px;font-weight:600;">Your Message:</p>
+      <p style="margin:0;color:#333;font-size:14px;line-height:1.6;">{{ message }}</p>
+    </td>
+  </tr>
+</table>
+{% endblock %}

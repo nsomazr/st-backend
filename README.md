@@ -49,7 +49,7 @@ Default admin login: `admin` / `admin123` (override with `--username` and `--pas
 python manage.py runserver
 ```
 
-API available at `http://localhost:8000/api/`
+API available at `http://localhost:8094/api/`
 
 ## PM2 Production Deploy
 
@@ -79,7 +79,7 @@ pm2 stop st-backend
 **Environment variables** (in `.env`):
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `PORT` | `8000` | Gunicorn bind port |
+| `PORT` | `8094` | Gunicorn bind port |
 | `GUNICORN_WORKERS` | `3` | Worker processes |
 | `PM2_APP_NAME` | `st-backend` | PM2 process name |
 | `ADMIN_ALERT_EMAIL` | `info@akisgroup.net` | Admin email for new bookings |

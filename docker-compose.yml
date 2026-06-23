@@ -22,12 +22,12 @@ services:
     build: .
     container_name: smarttravels-web
     restart: unless-stopped
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8094
     volumes:
       - .:/app
       - media_data:/app/media
     ports:
-      - "8000:8000"
+      - "8094:8094"
     env_file:
       - .env
     environment:

@@ -1,6 +1,6 @@
 const path = require('path');
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8094;
 const workers = process.env.GUNICORN_WORKERS || 3;
 
 module.exports = {

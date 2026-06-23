@@ -62,6 +62,6 @@ pm2 save
 echo ""
 echo "✅ Backend deployed with PM2"
 echo "   App name : $PM2_APP_NAME"
-echo "   Port     : ${PORT:-8000}"
+echo "   Port     : ${PORT:-8094}"
 echo "   Logs     : pm2 logs $PM2_APP_NAME"
 echo "   Status   : pm2 status $PM2_APP_NAME"

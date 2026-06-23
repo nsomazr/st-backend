@@ -29,6 +29,7 @@ class Command(BaseCommand):
                 'email': email,
                 'role': role,
                 'is_staff': True,
+                'is_active': True,
                 'is_superuser': role == AdminUser.Role.SUPERADMIN,
             },
         )
@@ -37,6 +38,7 @@ class Command(BaseCommand):
             user.email = email
             user.role = role
             user.is_staff = True
+            user.is_active = True
             user.is_superuser = role == AdminUser.Role.SUPERADMIN
 
         user.set_password(password)

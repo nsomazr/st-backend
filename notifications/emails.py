@@ -20,9 +20,9 @@ def _send_html_email(recipient, subject, template_name, context):
         'frontend_url': settings.FRONTEND_URL,
         'logo_url': f'{settings.FRONTEND_URL}/logo-email.png',
         'tagline': 'Travel Smart, Travel Better',
-        'phone': '+255 713689686',
+        'phone': '0794333544',
         'email': 'info@akisgroup.net',
-        'address': 'Posta House, 7 Ghana Avenue / Ohio Street, Dar es Salaam, Tanzania',
+        'address': 'Sukaei House, Posta, Dar es Salaam, Tanzania',
         'year': timezone.now().year,
     }
     html_content = render_to_string(template_name, context)

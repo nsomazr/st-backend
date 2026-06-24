@@ -5,14 +5,14 @@ from services.models import Service
 
 DEFAULT_SERVICES = [
     {
-        'name': 'Travel Consultancy',
+        'name': 'Travel Consultancy & Holiday Planning',
         'slug': 'travel-consultancy',
         'description': (
-            'Expert travel advice tailored to your needs. We help you plan the perfect '
-            'itinerary, choose destinations, and make informed travel decisions.'
+            'Expert travel advice and end-to-end holiday planning — personalized itineraries, '
+            'packages, accommodation, activities, and transfers tailored to your trip.'
         ),
         'icon': 'compass',
-        'image': 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80',
+        'image': 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80',
         'price_from': 50,
     },
     {
@@ -36,17 +36,6 @@ DEFAULT_SERVICES = [
         'icon': 'file-text',
         'image': 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80',
         'price_from': 75,
-    },
-    {
-        'name': 'Holiday Planning',
-        'slug': 'holiday-planning',
-        'description': (
-            'End-to-end holiday packages including accommodation, activities, and transfers. '
-            'Let us craft your dream vacation from start to finish.'
-        ),
-        'icon': 'palmtree',
-        'image': 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80',
-        'price_from': 200,
     },
     {
         'name': 'Hotel Reservations',
@@ -82,26 +71,15 @@ DEFAULT_SERVICES = [
         'price_from': 40,
     },
     {
-        'name': 'Safari & Tours',
+        'name': 'Safari, Tours & Maasai Experiences',
         'slug': 'safari-and-tours',
         'description': (
-            'Unforgettable wildlife safaris and guided tours across Tanzania and East Africa — '
-            'Serengeti, Ngorongoro, and beyond.'
+            'Wildlife safaris, guided tours, and authentic Maasai cultural experiences across '
+            'Tanzania and East Africa — from Serengeti game drives to village visits.'
         ),
         'icon': 'binoculars',
         'image': 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80',
         'price_from': 250,
-    },
-    {
-        'name': 'Maasai Experience Tour',
-        'slug': 'maasai-experience-tour',
-        'description': (
-            'Authentic Maasai cultural experiences — village visits, traditional ceremonies, '
-            'and immersive day tours with local guides.'
-        ),
-        'icon': 'users',
-        'image': 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&q=80',
-        'price_from': 120,
     },
     {
         'name': 'Travel Insurance',
@@ -134,3 +112,11 @@ class Command(BaseCommand):
                 self.stdout.write(f'Updated: {data["name"]}')
 
         self.stdout.write(self.style.SUCCESS(f'Done. {created_count} new services created.'))
+
+        retired = Service.objects.filter(slug='holiday-planning').update(is_active=False)
+        if retired:
+            self.stdout.write(self.style.WARNING('Deactivated legacy service: Holiday Planning'))
+
+        retired_maasai = Service.objects.filter(slug='maasai-experience-tour').update(is_active=False)
+        if retired_maasai:
+            self.stdout.write(self.style.WARNING('Deactivated legacy service: Maasai Experience Tour'))

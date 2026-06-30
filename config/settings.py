@@ -142,4 +142,4 @@ BEEM_SMS_SECRET_KEY = os.getenv('BEEM_SMS_SECRET_KEY', '').strip().strip("'\"")
 BEEM_SMS_SOURCE_ADDR = os.getenv('BEEM_SMS_SOURCE_ADDR', 'SMARTTRAV')
 BEEM_SMS_VERIFY_SSL = os.getenv('BEEM_SMS_VERIFY_SSL', 'False').lower() in ('true', '1', 'yes')
 
-FRONTEND_URL = os.getenv('FRONTEND_URL', 'https://st.nileagi.com')
+FRONTEND_URL = os.getenv('FRONTEND_URL', 'https://smarttravel.co.tz')

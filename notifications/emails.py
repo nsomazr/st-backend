@@ -20,7 +20,7 @@ def _send_html_email(recipient, subject, template_name, context):
         'frontend_url': settings.FRONTEND_URL,
         'logo_url': f'{settings.FRONTEND_URL}/logo-email.png',
         'tagline': 'Travel Smart, Travel Better',
-        'phone': '0794333544',
+        'phone': '0794333455',
         'email': 'info@akisgroup.net',
         'address': 'Sukaei House, Posta, Dar es Salaam, Tanzania',
         'year': timezone.now().year,

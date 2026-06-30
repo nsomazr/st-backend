@@ -62,9 +62,9 @@ ASGI_APPLICATION = 'config.asgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME', 'smarttravels'),
-        'USER': os.getenv('DB_USER', 'smarttravels'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'smarttravels'),
+        'NAME': os.getenv('DB_NAME', 'stdb'),
+        'USER': os.getenv('DB_USER', 'st-user'),
+        'PASSWORD': os.getenv('DB_PASSWORD', '@st@user'),
         'HOST': os.getenv('DB_HOST', 'localhost'),
         'PORT': os.getenv('DB_PORT', '3306'),
         'OPTIONS': {
@@ -130,7 +130,7 @@ EMAIL_HOST_PASSWORD = os.getenv('MAIL_PASSWORD', '')
 EMAIL_TIMEOUT = int(os.getenv('MAIL_TIMEOUT', '15'))
 DEFAULT_FROM_EMAIL = f"{os.getenv('MAIL_FROM_NAME', 'Smart Travels')} <{os.getenv('MAIL_FROM_ADDRESS', 'hello@nsoma.me')}>"
 
-ADMIN_ALERT_EMAIL = os.getenv('ADMIN_ALERT_EMAIL', 'info@akisgroup.net')
+ADMIN_ALERT_EMAIL = os.getenv('ADMIN_ALERT_EMAIL', 'bookings@smartravels.co.tz')
 ADMIN_ALERT_PHONES = [
     phone.strip()
     for phone in os.getenv('ADMIN_ALERT_PHONES', '+255713689686,+255757113006').split(',')
@@ -142,4 +142,4 @@ BEEM_SMS_SECRET_KEY = os.getenv('BEEM_SMS_SECRET_KEY', '').strip().strip("'\"")
 BEEM_SMS_SOURCE_ADDR = os.getenv('BEEM_SMS_SOURCE_ADDR', 'SMARTTRAV')
 BEEM_SMS_VERIFY_SSL = os.getenv('BEEM_SMS_VERIFY_SSL', 'False').lower() in ('true', '1', 'yes')
 
-FRONTEND_URL = os.getenv('FRONTEND_URL', 'https://smarttravel.co.tz')
+FRONTEND_URL = os.getenv('FRONTEND_URL', 'https://smarttravels.co.tz')

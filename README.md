@@ -115,6 +115,6 @@ docker compose up --build
 ## Production
 
 - Set `DEBUG=False` and a strong `SECRET_KEY`
-- `ALLOWED_HOSTS=api.smarttravel.co.tz`
-- `CORS_ALLOWED_ORIGINS=https://smarttravel.co.tz`
+- `ALLOWED_HOSTS=api.smarttravels.co.tz`
+- `CORS_ALLOWED_ORIGINS=https://smarttravels.co.tz`
 - Run with Gunicorn behind a reverse proxy
